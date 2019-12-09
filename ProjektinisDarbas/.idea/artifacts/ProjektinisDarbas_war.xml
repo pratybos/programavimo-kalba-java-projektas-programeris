@@ -3,6 +3,12 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="project-1.0.war">
       <element id="artifact" artifact-name="ProjektinisDarbas:war exploded" />
+      <element id="javaee-facet-resources" facet="ProjektinisDarbas/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ProjektinisDarbas" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

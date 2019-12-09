@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ClientController {
@@ -16,11 +18,12 @@ public class ClientController {
     }
 
     @GetMapping("client") // HTTP GET
-    public String list(Model model){
+    public @ResponseBody String list(Model model){
+        model.addAttribute("client", clientService.showClient());
         model.addAttribute("client", clientService.showClient());
         return "client";
     }
-    @GetMapping("client/{id}")
+    @GetMapping ("client/{id}")
     public String client(Model model, @PathVariable Long id){
         model.addAttribute("client", clientService.idClient(id));
         return "client";

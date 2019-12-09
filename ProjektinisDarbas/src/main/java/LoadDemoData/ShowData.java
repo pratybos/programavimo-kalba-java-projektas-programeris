@@ -18,6 +18,10 @@ public class ShowData implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
         String pav[] = {"Petraitis", "Jasaitis", "Lempaitis", "Monitoriaitis", "Ubagas"};
+
+        for (int i = 0; i < 15; i++) {
+            clientRepository.save(new Client(pav[new Random().nextInt(pav.length)], new Random().nextInt(5000)));
+        }
     }
 
     public ClientRepository getClientRepository() {
