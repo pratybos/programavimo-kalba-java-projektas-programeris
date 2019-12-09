@@ -23,4 +23,7 @@ public class Client {
         this.vardas = vard;
         this.pavarde = pav;
     }
+
+    public Client(String vard, int nextInt) {
+    }
 }
