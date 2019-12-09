@@ -1,12 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="war" name="ProjektinisDarbas:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <module>ProjektinisDarbas</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
     <root id="archive" name="project-1.0.war">
       <element id="artifact" artifact-name="ProjektinisDarbas:war exploded" />
     </root>
