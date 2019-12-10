@@ -1,28 +1,66 @@
 package com.IS17B.Restoranas.restoranas.Model;
 
-import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Data
-@Entity
 public class Client {
-    @Id
-    @GeneratedValue
-    private Long id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
-    private Long phoneNumber;
+    private Integer phoneNumber;
 
-    public Client(String s, int i){}
+    public Client(){
 
-    public Client(String fname, String lname, String email, Long pnum){
-        this.firstName = fname;
-        this.lastName = lname;
+    }
+
+    public Client(Integer id, String firstName, String lastName, String email, Integer phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        this.phoneNumber =pnum;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    @Override
+    public String toString(){
+        return id+firstName+lastName+email+phoneNumber;
     }
 }
