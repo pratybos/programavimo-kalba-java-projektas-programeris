@@ -14,7 +14,7 @@ public class JdbcClientRepository implements ClientRepository{
 
     @Override
     public int count() {
-        return jdbcTemplate.queryForObject("SELECT count(*) from clients", Integer.class);
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM clients", Integer.class);
     }
 
     @Override
@@ -26,18 +26,18 @@ public class JdbcClientRepository implements ClientRepository{
 
     @Override
     public int update(Client client) {
-        return jdbcTemplate.update("UPDATE clients set firstName = ?, lastName = ?," +
+        return jdbcTemplate.update("UPDATE clients SET firstName = ?, lastName = ?," +
                 "email = ?, phoneNumber = ? WHERE id =?");
     }
 
     @Override
     public int deleteById(Integer id) {
-        return jdbcTemplate.update("DELETE clients where id = ?", id);
+        return jdbcTemplate.update("DELETE FROM clients WHERE id = ?", id);
     }
 
     @Override
     public List<Client> findAll() {
-        return jdbcTemplate.query("SELECT * from clients",
+        return jdbcTemplate.query("SELECT * FROM clients",
                 (rs,rowNum) -> new Client(rs.getInt("id"), rs.getString("firstName"),
                         rs.getString("lastName"), rs.getString("email"),
                         rs.getInt("phoneNumber")));

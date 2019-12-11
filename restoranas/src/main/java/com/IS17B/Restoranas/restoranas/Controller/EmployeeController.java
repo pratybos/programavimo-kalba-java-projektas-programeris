@@ -1,6 +1,6 @@
 package com.IS17B.Restoranas.restoranas.Controller;
 
-import com.IS17B.Restoranas.restoranas.Service.ClientService;
+import com.IS17B.Restoranas.restoranas.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ClientController {
+public class EmployeeController {
 
     @Autowired
-    ClientService service;
+    EmployeeService service;
 
-    @RequestMapping(value = "/clients", method = RequestMethod.GET)
+    @RequestMapping(value = "/employee", method = RequestMethod.GET)
     public String index(Model mdl){
-        mdl.addAttribute("clients", service.findAll());
-        return "clients";
+        mdl.addAttribute("employee", service.findAll());
+        return "employee";
     }
 }
