@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<html lang="en">
+<head>
+    <title>client</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>Clients</h2>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>email</th>
+        <th>phoneNumber</th>
+    </tr>
+    <tr th:each = "clients: ${clients}">
+        <td th:text="${clients.id}">1</td>
+        <td th:text="${clients.firstName}">Bilis</td>
+        <td th:text="${clients.lastName}">Viliauskas</td>
+        <td th:text="${clients.email}">bilisval</td>
+        <td th:text="${clients.phoneNumber}">8855485</td>
+    </tr>
+</table>
+<a th:href="@{home}"><img src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/re-pict-house-base.png" alt="Namukas" width="32" height="32"></a>
+</body>
+</html>

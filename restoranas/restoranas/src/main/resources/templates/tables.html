@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<html lang="en">
+<head>
+    <title>Tables</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>Tables</h2>
+<table border="1">
+    <tr>
+        <th>Table ID</th>
+        <th>Employee ID</th>
+        <th>Client ID</th>
+    </tr>
+    <tr th:each = "tables: ${tables}">
+        <td th:text="${tables.id}">1</td>
+        <td th:text="${tables.idEmployee}">1</td>
+        <td th:text="${tables.idClient}">1</td>
+    </tr>
+</table>
+<a th:href="@{home}"><img src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/re-pict-house-base.png" alt="Namukas" width="32" height="32"></a>
+</body>
+</html>
