@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+    <div class="container my-5">
+        <h3> Add Order</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form action="#" th:action="@{/list-order/createOrder}" th:object="${order}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="orderName" class="col-form-label">Order Name</label>
+                                <input type="text" th:field="*{orderName}" class="form-control"
+                                            id="orderName" placeholder="Order Name" />
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="clientName" class="col-form-label">Client Name</label>
+                                <input type="text" th:field="*{clientName}" class="form-control"
+                                       id="clientName" placeholder="Client Name" />
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="phoneNumber" class="col-form-label">Phone Number</label>
+                                <input type="text" th:field="*{phoneNumber}" class="form-control"
+                                       id="phoneNumber" placeholder="Phone Number" />
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="fullPrice" class="col-form-label">Full Price</label>
+                                <input type="text" th:field="*{fullPrice}" class="form-control"
+                                            id="fullPrice" placeholder="Price" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-primary" value=" Submit ">
+                            </div>
+
+                            <input type="hidden" id="id" th:field="*{id}">
+    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

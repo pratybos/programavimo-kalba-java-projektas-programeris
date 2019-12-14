@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>All Dishes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <style>
+        .scrollit{
+            overflow: scroll;
+            width: 100%;
+            height: 300px;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        li{
+            float: left;
+        }
+        li a{
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover{
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-2">
+    <div class="card">
+    <div class="card-body">
+        <div th:switch="${orders}" class="container my-5">
+            <p class="my-5">
+                <a href="/list-order/orderedit" class="btn btn-primary">
+                <i class="fas fa-plus ml-2">Add Order </i></a>
+            </p>
+            <div class="col-md-10">
+                <h2 th:case="null">No record found !!</h2>
+                <div th:case="*">
+                    <ul>
+                        <li><a href="#Home">Home</a></li>
+                        <li><a href="/">Employees</a></li>
+                        <li><a href="/list-dishes">Dishes</a> </li>
+                    </ul>
+                    <table class="table table-striped table-responsive-md ">
+                        <thead>
+                        <tr>
+                            <td>
+                                <table width="100%" height="30">
+                                    <tr>
+                                        <th width="2%">Order</th>
+                                        <th width="18%">Client Name</th>
+                                        <th width="24%">Phone Number</th>
+                                        <th width="20%">Price</th>
+                                        <th width="16%">Edit</th>
+                                        <th width="20%">Delete</th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="scrollit">
+                                    <table width="100%">
+                                        <tr th:each="order : ${orders}">
+                                            <td th:text="${order.orderName}"></td>
+                                            <td th:text="${order.clientName}"></td>
+                                            <td th:text="${order.phoneNumber}"></td>
+                                            <td th:text="${order.fullPrice}"></td>
+                                            <td>
+                                                <a th:href="@{/list-order/orderedit/{id}(id=${order.id})}" class="btn btn-primary">
+                                                    <i class="fas fa-edit ml-2"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:href="@{/list-order/orderdelete/{id}(id=${order.id})}" class="btn btn-primary">
+                                                    <i class="fas fa-minus ml-2"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
